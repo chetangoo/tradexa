@@ -93,8 +93,8 @@ DATABASES = {
         'HOST':'localhost'
     },
     'product_db': {
-        'NAME': 'db_product',
-        'ENGINE': os.environ.get('HEROKU_POSTGRESQL_COBALT_URL'),
+        'NAME': os.environ.get('HEROKU_POSTGRESQL_COBALT_URL'),
+        'ENGINE': 'django.db.backends.postgresql',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST':'localhost'
