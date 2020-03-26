@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 DATABASE_ROUTERS = ['Product.router.ProductRouter']
 DATABASES = {
     'default': {
-        'NAME': 'pg_def',
+        'NAME': os.environ.get('DATABASE_URL'),
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'postgres',
         'PASSWORD': '1234',
@@ -94,7 +94,7 @@ DATABASES = {
     },
     'product_db': {
         'NAME': 'db_product',
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': os.environ.get('HEROKU_POSTGRESQL_COBALT_URL'),
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST':'evening-refuge-34732.herokuapp.com'
