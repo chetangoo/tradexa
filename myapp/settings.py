@@ -90,14 +90,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'postgres',
         'PASSWORD': '1234',
-        'HOST':'localhost'
+        'HOST':'evening-refuge-34732.herokuapp.com'
     },
     'product_db': {
         'NAME': 'db_product',
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'postgres',
         'PASSWORD': '1234',
-        'HOST':'localhost'
+        'HOST':'evening-refuge-34732.herokuapp.com'
     }
 }
 
