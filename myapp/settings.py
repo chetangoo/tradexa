@@ -26,7 +26,7 @@ SECRET_KEY = '3h!*g^_034c0lz!r48!2v@)w5l5vv&ou_t5m@*d!j)-s6o3u6l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['evening-refuge-34732.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','evening-refuge-34732.herokuapp.com']
 
 
 # Application definition
@@ -86,14 +86,14 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 DATABASE_ROUTERS = ['Product.router.ProductRouter']
 DATABASES = {
     'default': {
-        'NAME': os.environ.get('DATABASE_URL'),
+        'NAME': "pg_def",
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST':'localhost'
     },
     'product_db': {
-        'NAME': os.environ.get('HEROKU_POSTGRESQL_COBALT_URL'),
+        'NAME': 'product_db',
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'postgres',
         'PASSWORD': '1234',
@@ -101,6 +101,10 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
